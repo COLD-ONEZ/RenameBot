@@ -106,7 +106,7 @@ async def log_file(client, message):
         await message.reply_text(f"Error:\n`{e}`")
 
 
-@Client.on_message(filters.private & (filters.document | filters.audio | filters.video))
+@Client.on_message(filters.private & filters.user(ADMINS) & (filters.document | filters.audio | filters.video))
 async def rename_start(client, message):
     file = getattr(message, message.media.value)
     filename = file.file_name
