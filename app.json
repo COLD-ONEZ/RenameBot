@@ -11,18 +11,18 @@
     "env": {
         "APP_ID": {
             "description": "Your APP ID From my.telegram.org ",
-            "value": "29487476"
+            "value": "4643686"
         },
         "API_HASH": {
             "description": "Your API Hash From my.telegram.org ",
-            "value": "f3c3a572ecb00bcd9ba608f21a249218"
+            "value": "fc0f585e681cc863dc957669efe095cd"
         },
         "TOKEN": {
             "description": "Your Bot Token From @BotFather",
-            "value": "5944960949:AAFm85Fuk1wpucoFlRU8vCTvl6TVfplMu3I"
+            "value": "5834856167:AAFqFsPS_xE3QiETop3IGcLgbU8r7qU7bI4"
         },
         "ADMIN": {
-            "description":"5592844994 5329179170 730103880"
+            "description":"5329179170"
         },
         "DB_URL": {
             "description": "Your Mongo DB URL Obtained From mongodb.com",
@@ -35,7 +35,7 @@
         },
         "FORCE_SUB":{ 
                "description":"Channel ID ",
-                "value": "-1001899955138",
+                "value": "--1001832254275",
                 
         },
         "START_IMG":{
