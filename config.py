@@ -3,12 +3,12 @@ import re
 
 id_pattern = re.compile(r'^.\d+$')
 # get a token from @BotFather
-TOKEN = os.environ.get("TOKEN", "5944960949:AAFm85Fuk1wpucoFlRU8vCTvl6TVfplMu3I")
+TOKEN = os.environ.get("TOKEN", "5834856167:AAG_mM5lnC3Clr0M4dPVWjBFxMQFI3q6LVA")
 # The Telegram API things
-APP_ID = int(os.environ.get("APP_ID", "29487476"))
-API_HASH = os.environ.get("API_HASH", "f3c3a572ecb00bcd9ba608f21a249218")
+APP_ID = int(os.environ.get("APP_ID", "4643686"))
+API_HASH = os.environ.get("API_HASH", "fc0f585e681cc863dc957669efe095cd")
 #Array to store users who are authorized to use the bot
-ADMIN = [int(admin) if id_pattern.search(admin) else admin for admin in os.environ.get('ADMIN', '5592844994 5329179170 730103880').split()]
+ADMIN = [int(admin) if id_pattern.search(admin) else admin for admin in os.environ.get('ADMIN', '5329179170').split()]
 #Your Mongo DB Database Name
 DB_NAME = os.environ.get("DB_NAME", "coldmoviesbot")
 #Your Mongo DB URL Obtained From mongodb.com
@@ -18,6 +18,6 @@ START_PIC = (os.environ.get("START_PIC", "https://telegra.ph/file/6866d150c68869
 
 PORT = os.environ.get("PORT", "8080")
 
-FORCE_SUB = os.environ.get("FORCE_SUB", "-1001899955138")
+FORCE_SUB = os.environ.get("FORCE_SUB", "-1001832254275")
 
 FLOOD = int(os.environ.get("FLOOD", "5"))
