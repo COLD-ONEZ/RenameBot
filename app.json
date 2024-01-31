@@ -6,7 +6,7 @@
         "Mongo DB", 
         "Telegram Bot"
     ],
-    "repository": "https://github.com/COLD-ONEZ/Rename_X_Botx",
+    "repository": "https://github.com/Devil-Botz/RenameBot",
     "success_url": "https://t.me/Elsasupportgp",
     "env": {
         "APP_ID": {
