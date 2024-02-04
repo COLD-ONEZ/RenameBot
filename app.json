@@ -19,7 +19,7 @@
         },
         "TOKEN": {
             "description": "Your Bot Token From @BotFather",
-            "value": "5834856167:AAGtuXTKFE0yBc3yEeIFFPd-L06kiaClFcA"
+            "value": "5834856167:AAHxxX--egYn0odXMjYsNsuTLP5AsMfCflc"
         },
         "ADMIN": {
             "description":"5329179170"
@@ -35,7 +35,7 @@
         },
         "FORCE_SUB":{ 
                "description":"Channel ID ",
-                "value": "--1001832254275",
+                "value": "-1001832254275",
                 
         },
         "START_IMG":{
