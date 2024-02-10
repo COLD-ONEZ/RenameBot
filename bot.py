@@ -1,7 +1,7 @@
 import logging
 import logging.config
 from pyrogram import Client 
-from config import API_ID, API_HASH, TOKEN, FORCE_SUB, PORT
+from config import Config
 from aiohttp import web
 from plugins.web import web_server
 
@@ -16,12 +16,12 @@ class Bot(Client):
     def __init__(self):
         super().__init__(
             name="renamer",
-            api_id=API_ID,
-            api_hash=API_HASH,
-            bot_token=TOKEN,
-            workers=50,
+            api_id=Config.API_ID,
+            api_hash=Config.API_HASH,
+            bot_token=Config.BOT_TOKEN,
+            workers=200,
             plugins={"root": "plugins"},
-            sleep_threshold=150,
+            sleep_threshold=15,
         )
 
     async def start(self):
