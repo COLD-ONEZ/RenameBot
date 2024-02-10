@@ -9,8 +9,8 @@
     "repository": "https://github.com/COLD-ONEZ/Rename_X_Botx",
     "success_url": "https://t.me/Elsasupportgp",
     "env": {
-        "APP_ID": {
-            "description": "Your APP ID From my.telegram.org ",
+        "API_ID": {
+            "description": "Your API ID From my.telegram.org ",
             "value": ""
         },
         "API_HASH": {
