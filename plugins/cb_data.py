@@ -48,81 +48,67 @@ async def doc(bot,update):
      try:
         metadata = extractMetadata(createParser(file_path))
         if metadata.has("duration"):
-            duration = metadata.get("duration").seconds
-    except:
+           duration = metadata.get('duration').seconds
+     except:
         pass
-
-    user_id = int(update.message.chat.id)
-    ph_path = None
-    media = getattr(file, file.media.value)
-    c_caption = await db.get_caption(update.message.chat.id)
-    c_thumb = await db.get_thumbnail(update.message.chat.id)
-
-    if c_caption:
-        try:
-            caption = c_caption.format(
-                filename=new_filename,
-                filesize=humanize.naturalsize(media.file_size),
-                duration=convert(duration),
-            )
-        except Exception as e:
-            await ms.edit(f"Caption formatting error: {e}")
-            return
-    else:
-        caption = f"**{new_filename}**"
-
-    if media.thumbs or c_thumb:
-        if c_thumb:
-            ph_path = await bot.download_media(c_thumb)
-        else:
+     user_id = int(update.message.chat.id) 
+     ph_path = None 
+     media = getattr(file, file.media.value)
+     c_caption = await db.get_caption(update.message.chat.id)
+     c_thumb = await db.get_thumbnail(update.message.chat.id)
+     if c_caption:
+         try:
+             caption = c_caption.format(filename=new_filename, filesize=humanize.naturalsize(media.file_size), duration=convert(duration))
+         except Exception as e:
+             await ms.edit(text=f"Your caption Error unexpected keyword ●> ({e})")
+             return 
+     else:
+         caption = f"**{new_filename}**"
+     if (media.thumbs or c_thumb):
+         if c_thumb:
+            ph_path = await bot.download_media(c_thumb) 
+         else:
             ph_path = await bot.download_media(media.thumbs[0].file_id)
-
-        Image.open(ph_path).convert("RGB").save(ph_path)
-        img = Image.open(ph_path)
-        img.resize((320, 320))
-        img.save(ph_path, "JPEG")
-
-    await ms.edit(script.TT_UPLD)
-    c_time = time.time()
-
-    try:
+         Image.open(ph_path).convert("RGB").save(ph_path)
+         img = Image.open(ph_path)
+         img.resize((320, 320))
+         img.save(ph_path, "JPEG")
+     await ms.edit(script.TT_DOWN)
+     c_time = time.time() 
+     try:
         if type == "document":
-            await bot.send_document(
-                update.message.chat.id,
-                document=file_path,
-                thumb=ph_path,
-                caption=caption,
-                progress=progress_for_pyrogram,
-                progress_args=(script.TT_UPLD, ms, c_time),
-            )
-        elif type == "video":
+           await bot.send_document(
+		    update.message.chat.id,
+                    document=file_path,
+                    thumb=ph_path, 
+                    caption=caption, 
+                    progress=progress_for_pyrogram,
+                    progress_args=(script.TT_DOWN,  ms, c_time   ))
+        elif type == "video": 
             await bot.send_video(
-                update.message.chat.id,
-                video=file_path,
-                caption=caption,
-                thumb=ph_path,
-                duration=duration,
-                progress=progress_for_pyrogram,
-                progress_args=(script.TT_UPLD, ms, c_time),
-            )
-        elif type == "audio":
+		    update.message.chat.id,
+		    video=file_path,
+		    caption=caption,
+		    thumb=ph_path,
+		    duration=duration,
+		    progress=progress_for_pyrogram,
+		    progress_args=( "script.TT_DOWN",  ms, c_time))
+        elif type == "audio": 
             await bot.send_audio(
-                update.message.chat.id,
-                audio=file_path,
-                caption=caption,
-                thumb=ph_path,
-                duration=duration,
-                progress=progress_for_pyrogram,
-                progress_args=(script.TT_UPLD, ms, c_time),
-            )
-    except Exception as e:
-        await ms.edit(f"Error during upload: {e}")
-        os.remove(file_path)
-        if ph_path:
-            os.remove(ph_path)
-        return
-
-    await ms.delete()
-    os.remove(file_path)
-    if ph_path:
+		    update.message.chat.id,
+		    audio=file_path,
+		    caption=caption,
+		    thumb=ph_path,
+		    duration=duration,
+		    progress=progress_for_pyrogram,
+		    progress_args=( "script.TT_DOWN",  ms, c_time   )) 
+     except Exception as e: 
+         await ms.edit(f" Erro {e}") 
+         os.remove(file_path)
+         if ph_path:
+           os.remove(ph_path)
+         return 
+     await ms.delete() 
+     os.remove(file_path) 
+     if ph_path:
         os.remove(ph_path)
