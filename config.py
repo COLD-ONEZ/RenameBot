@@ -17,5 +17,4 @@ class Config(object):
     START_PIC   = os.environ.get("START_PIC", "")
     ADMIN       = [int(admin) if id_pattern.search(admin) else admin for admin in os.environ.get('ADMIN', '').split()]
     FORCE_SUB   = os.environ.get("FORCE_SUB", "") 
-
-FLOOD = int(os.environ.get("FLOOD", "10"))
+    FLOOD = int(os.environ.get("FLOOD", "10"))
