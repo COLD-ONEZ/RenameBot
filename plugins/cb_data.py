@@ -27,31 +27,25 @@ async def rename(bot,update):
 	reply_markup=ForceReply(True))
 	
 @Client.on_callback_query(filters.regex("upload"))
-async def doc(bot, update):
-    type = update.data.split("_")[1]
-    new_name = update.message.text
-    new_filename = new_name.split(":-")[1]
-    file_path = f"downloads/{new_filename}"
-    file = update.message.reply_to_message
-    ms = await update.message.edit(script.TT_DOWN)
-    c_time = time.time()
-    try:
-        path = await bot.download_media(
-            message=file,
-            progress=progress_for_pyrogram,
-            progress_args=(script.TT_DOWN, ms, c_time),
-        )
-    except Exception as e:
-        await ms.edit(f"Error during download: {e}")
-        return
-
-    splitpath = path.split("/downloads/")
-    dow_file_name = splitpath[1]
-    old_file_name = f"downloads/{dow_file_name}"
-    os.rename(old_file_name, file_path)
-
-    duration = 0
-    try:
+async def doc(bot,update):
+     type = update.data.split("_")[1]
+     new_name = update.message.text
+     new_filename = new_name.split(":-")[1]
+     file_path = f"downloads/{new_filename}"
+     file = update.message.reply_to_message
+     ms = await update.message.edit(script.TT_DOWN)
+     c_time = time.time()
+     try:
+     	path = await bot.download_media(message = file, progress=progress_for_pyrogram,progress_args=(script.TT_DOWN,  ms, c_time   ))
+     except Exception as e:
+     	await ms.edit(e)
+     	return 
+     splitpath = path.split("/downloads/")
+     dow_file_name = splitpath[1]
+     old_file_name =f"downloads/{dow_file_name}"
+     os.rename(old_file_name,file_path)
+     duration = 0
+     try:
         metadata = extractMetadata(createParser(file_path))
         if metadata.has("duration"):
             duration = metadata.get("duration").seconds
