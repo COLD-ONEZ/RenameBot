@@ -11,31 +11,31 @@
     "env": {
         "APP_ID": {
             "description": "Your APP ID From my.telegram.org ",
-            "value": "4643686"
+            "value": ""
         },
         "API_HASH": {
             "description": "Your API Hash From my.telegram.org ",
-            "value": "fc0f585e681cc863dc957669efe095cd"
+            "value": ""
         },
         "TOKEN": {
             "description": "Your Bot Token From @BotFather",
-            "value": "5834856167:AAHxxX--egYn0odXMjYsNsuTLP5AsMfCflc"
+            "value": ""
         },
         "ADMIN": {
-            "description":"5329179170"
+            "description":""
         },
         "DB_URL": {
             "description": "Your Mongo DB URL Obtained From mongodb.com",
-            "value": "mongodb+srv://C_M_D:cold_x_movies@coldmoviesbot.ig0bwq1.mongodb.net/?retryWrites=true&w=majority"
+            "value": ""
         },
         "DB_NAME":{ 
                "description":"Your Mongo DB Database Name ",
-                "value": "coldmoviesbot",
+                "value": "my",
                 "required": false
         },
         "FORCE_SUB":{ 
                "description":"Channel ID ",
-                "value": "-1001832254275",
+                "value": "",
                 
         },
         "START_IMG":{
@@ -46,6 +46,12 @@
     "buildpacks": [
         {
             "url": "heroku/python"
-        }
-    ]
+    }
+  ],
+  "formation": {
+    "worker": {
+      "quantity": 1,
+      "size": "eco"
+    }
+  }
 }
